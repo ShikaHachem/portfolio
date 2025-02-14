@@ -26,7 +26,7 @@ export default function Page() {
           <BlurFadeText
             delay={0.2}
             className="text-4xl font-bold tracking-tight sm:text-6xl"
-            text="Hi, I'm Maha 👋"
+            text="Hi, I&apos;m Maha 👋"
           />
           
           <BlurFadeText
@@ -42,7 +42,7 @@ export default function Page() {
           <h2 className="text-3xl font-bold">Through the Film Mirror</h2>
         </BlurFade>
         <BlurFade delay={0.55}>
-          <p className="text-lg text-muted-foreground">Film is more than just moving images—it's a mirror reflecting human nature, society, and the subconscious. My approach to film analysis blends a passion for storytelling with a search for deeper meaning, uncovering the layers of symbolism, character development, and directorial intent that make cinema an art form.</p>
+          <p className="text-lg text-muted-foreground">Film is more than just moving images—it&apos;s a mirror reflecting human nature, society, and the subconscious. My approach to film analysis blends a passion for storytelling with a search for deeper meaning, uncovering the layers of symbolism, character development, and directorial intent that make cinema an art form.</p>
         </BlurFade>
         <BlurFade delay={0.6}>
           <p className="text-lg text-muted-foreground">Drawing from my love for immersive narratives, self-development themes, and the power of visual metaphors, I explore how films shape emotions, challenge perceptions, and leave lasting imprints on the mind.</p>
@@ -57,7 +57,7 @@ export default function Page() {
           <h2 className="text-3xl font-bold">About Me</h2>
         </BlurFade>
         <BlurFade delay={0.75}>
-          <p className="text-lg text-muted-foreground">I'm Maha, a film enthusiast with a deep love for storytelling, symbolism, and the art of cinema. Whether it's the psychological depth of Shutter Island, the poetic beauty of In the Mood for Love, or the complex character arcs of Breaking Bad, I'm drawn to films that leave a lasting impact.</p>
+          <p className="text-lg text-muted-foreground">I&apos;m Maha, a film enthusiast with a deep love for storytelling, symbolism, and the art of cinema. Whether it&apos;s the psychological depth of Shutter Island, the poetic beauty of In the Mood for Love, or the complex character arcs of Breaking Bad, I&apos;m drawn to films that leave a lasting impact.</p>
         </BlurFade>
         <BlurFade delay={0.8}>
           <p className="text-lg text-muted-foreground">With a background in filmmaking and a passion for analysis, I created this platform to explore cinema beyond the surface—diving into themes, cinematography, and the nuances that make each film unique. This space is not just about reviews but about understanding the essence of storytelling and its power to shape perception.</p>
@@ -92,7 +92,7 @@ export default function Page() {
 
       <section id="hows_made" className="space-y-4 mt-12">
         <BlurFade delay={1.1}>
-          <h2 className="text-3xl font-bold">How It's Made</h2>
+          <h2 className="text-3xl font-bold">How It&apos;s Made</h2>
         </BlurFade>
         <BlurFade delay={1.15}>
           <p className="text-lg text-muted-foreground">Deep dives into filmmaking techniques such as editing, lighting, set design, and more. Case studies of great directors and their unique styles.</p>
