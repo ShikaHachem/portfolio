@@ -29,7 +29,7 @@ export const ResumeCard = ({
   period,
   description,
 }: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(true);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     if (description) {
@@ -37,6 +37,8 @@ export const ResumeCard = ({
       setIsExpanded(!isExpanded);
     }
   };
+
+  const bulletPoints = description?.split('\n');
 
   return (
     <Link
@@ -88,19 +90,24 @@ export const ResumeCard = ({
           </CardHeader>
           {description && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 1, height: "auto" }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
                 height: isExpanded ? "auto" : 0,
               }}
               transition={{
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 text-xs sm:text-sm px-4 pb-4"
             >
-              {description}
+              <ul className="list-disc space-y-1 ml-4">
+                {bulletPoints?.map((point, index) => (
+                  <li key={index} className="text-muted-foreground">
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           )}
         </div>

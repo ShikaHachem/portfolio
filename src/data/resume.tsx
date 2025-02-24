@@ -38,7 +38,11 @@ export const DATA = {
       title: "Poste de Distribution",
       start: "November 2022",
       end: "November 2024",
-      description: "---",
+      description: [
+        "Distribution et gestion des films",
+        "Coordination avec les cinémas",
+        "Suivi des projections"
+      ].join("\n"),
     },
     {
       company: "HANNIBAL TV",
@@ -48,8 +52,14 @@ export const DATA = {
       title: "Assistante en Réalisation",
       start: "August 2022",
       end: "August 2022",
-      description:
-        "Collaboration étroite avec le réalisateur pour assurer la qualité créative et technique des segments téléachat. Assistance sur le tournage des VTRs, en choisissant minutieusement les angles et compositions. Coordination entre l'équipe de production et la post-production. Apparition à l'écran en tant qu'actrice. Gestion et correction des problèmes de continuité. Médiation entre le réalisateur et le monteur pour l'optimisation de la synchronisation du voice-over.",
+      description: [
+        "Collaboration étroite avec le réalisateur pour assurer la qualité créative et technique des segments téléachat",
+        "Assistance sur le tournage des VTRs, en choisissant minutieusement les angles et compositions",
+        "Coordination entre l'équipe de production et la post-production",
+        "Apparition à l'écran en tant qu'actrice",
+        "Gestion et correction des problèmes de continuité",
+        "Médiation entre le réalisateur et le monteur pour l'optimisation de la synchronisation du voice-over"
+      ].join("\n"),
     },
     {
       company: "RADIO IFM",
@@ -59,8 +69,14 @@ export const DATA = {
       title: "Assistante en Production",
       start: "August 2021",
       end: "August 2021",
-      description:
-        "Participation au casting et à la sélection des animateurs/invités. Recherche approfondie pour le développement de concepts créatifs et de nouvelles émissions. Coordination logistique, gestion des plannings et briefing des invités. Élaboration des contenus éditoriaux et des déroulés d'émission. Supervision de la production de reportages, documentaires, micro-trottoirs et interviews en français et en anglais. Gestion de la régie technique et résolution rapide des problèmes techniques en direct.",
+      description: [
+        "Participation au casting et à la sélection des animateurs/invités",
+        "Recherche approfondie pour le développement de concepts créatifs et de nouvelles émissions",
+        "Coordination logistique, gestion des plannings et briefing des invités",
+        "Élaboration des contenus éditoriaux et des déroulés d'émission",
+        "Supervision de la production de reportages, documentaires, micro-trottoirs et interviews en français et en anglais",
+        "Gestion de la régie technique et résolution rapide des problèmes techniques en direct"
+      ].join("\n"),
     },
     {
       company: "STH",
@@ -70,8 +86,10 @@ export const DATA = {
       title: "Assistante Admin & Communication",
       start: "July 2017",
       end: "November 2020",
-      description:
-        "Assister la direction à la gestion administrative. Assurer la communication interne et externe.",
+      description: [
+        "Assister la direction à la gestion administrative",
+        "Assurer la communication interne et externe"
+      ].join("\n"),
     },
   ],
   education: [
