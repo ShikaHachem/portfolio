@@ -35,13 +35,13 @@ export const DATA = {
       href: "#",
       badges: [],
       location: "Tunisia",
-      title: "Poste de Distribution",
+      title: "Distribution Position",
       start: "November 2022",
       end: "November 2024",
       description: [
-        "Distribution et gestion des films",
-        "Coordination avec les cinémas",
-        "Suivi des projections"
+        "Film distribution and management",
+        "Coordination with cinemas",
+        "Screening monitoring and follow-up"
       ].join("\n"),
     },
     {
@@ -49,16 +49,16 @@ export const DATA = {
       href: "#",
       badges: [],
       location: "Tunisia",
-      title: "Assistante en Réalisation",
+      title: "Assistant Director",
       start: "August 2022",
       end: "August 2022",
       description: [
-        "Collaboration étroite avec le réalisateur pour assurer la qualité créative et technique des segments téléachat",
-        "Assistance sur le tournage des VTRs, en choisissant minutieusement les angles et compositions",
-        "Coordination entre l'équipe de production et la post-production",
-        "Apparition à l'écran en tant qu'actrice",
-        "Gestion et correction des problèmes de continuité",
-        "Médiation entre le réalisateur et le monteur pour l'optimisation de la synchronisation du voice-over"
+        "Close collaboration with director to ensure creative and technical quality of teleshopping segments",
+        "Assistance with VTR shoots, meticulously selecting angles and compositions",
+        "Coordination between production and post-production teams",
+        "On-screen appearances as an actress",
+        "Management and correction of continuity issues",
+        "Mediation between director and editor for voice-over synchronization optimization"
       ].join("\n"),
     },
     {
@@ -66,16 +66,16 @@ export const DATA = {
       href: "#",
       badges: [],
       location: "Tunisia",
-      title: "Assistante en Production",
+      title: "Production Assistant",
       start: "August 2021",
       end: "August 2021",
       description: [
-        "Participation au casting et à la sélection des animateurs/invités",
-        "Recherche approfondie pour le développement de concepts créatifs et de nouvelles émissions",
-        "Coordination logistique, gestion des plannings et briefing des invités",
-        "Élaboration des contenus éditoriaux et des déroulés d'émission",
-        "Supervision de la production de reportages, documentaires, micro-trottoirs et interviews en français et en anglais",
-        "Gestion de la régie technique et résolution rapide des problèmes techniques en direct"
+        "Participation in casting and selection of hosts/guests",
+        "In-depth research for creative concept development and new shows",
+        "Logistics coordination, schedule management, and guest briefings",
+        "Development of editorial content and show rundowns",
+        "Supervision of reports, documentaries, vox pops, and interviews in French and English",
+        "Technical direction management and quick resolution of live technical issues"
       ].join("\n"),
     },
     {
@@ -83,12 +83,12 @@ export const DATA = {
       href: "#",
       badges: [],
       location: "Tunisia",
-      title: "Assistante Admin & Communication",
+      title: "Admin & Communication Assistant",
       start: "July 2017",
       end: "November 2020",
       description: [
-        "Assister la direction à la gestion administrative",
-        "Assurer la communication interne et externe"
+        "Assist management with administrative tasks",
+        "Ensure internal and external communication"
       ].join("\n"),
     },
   ],
