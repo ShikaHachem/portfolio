@@ -85,9 +85,9 @@ export const DATA = {
     {
       school: "Faculté des Sciences Humaines et Sociales de Tunis",
       href: "#",
-      degree: "License 1 in English Literature and Civilization",
-      start: "2019",
-      end: "2020",
+      degree: "License in English Literature and Civilization",
+      start: "2017",
+      end: "2019",
     },
   ],
   languages: [
