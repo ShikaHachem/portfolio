@@ -31,27 +31,13 @@ export const DATA = {
   ],
   work: [
     {
-      company: "CINEMA",
-      href: "#",
-      badges: [],
-      location: "Tunisia",
-      title: "Distribution Position",
-      start: "November 2022",
-      end: "November 2024",
-      description: [
-        "Film distribution and management",
-        "Coordination with cinemas",
-        "Screening monitoring and follow-up"
-      ].join("\n"),
-    },
-    {
       company: "HANNIBAL TV",
       href: "#",
       badges: [],
       location: "Tunisia",
       title: "Assistant Director",
-      start: "August 2022",
-      end: "August 2022",
+      start: "July 2023",
+      end: "Present",
       description: [
         "Close collaboration with director to ensure creative and technical quality of teleshopping segments",
         "Assistance with VTR shoots, meticulously selecting angles and compositions",
@@ -67,8 +53,8 @@ export const DATA = {
       badges: [],
       location: "Tunisia",
       title: "Production Assistant",
-      start: "August 2021",
-      end: "August 2021",
+      start: "November 2022",
+      end: "July 2023",
       description: [
         "Participation in casting and selection of hosts/guests",
         "In-depth research for creative concept development and new shows",
@@ -99,6 +85,15 @@ export const DATA = {
       degree: "BTS: Assistant Director",
       start: "2020",
       end: "2022",
+      description: [
+        "Cinema History",
+        "Cinematography",
+        "Scenario and Creative Writing",
+        "Esthétique de Film",
+        "Editing",
+        "Film Production",
+        "Visual Storytelling"
+      ].join("\n"),
     },
     {
       school: "Faculté des Sciences Humaines et Sociales de Tunis",
