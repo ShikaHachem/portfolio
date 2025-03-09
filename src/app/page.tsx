@@ -88,7 +88,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/rick-morty-thumbnail.png"
+                    src="https://via.placeholder.com/800x400?text=Rick+and+Morty+Birthday+Video"
                     alt="Rick and Morty Birthday Video"
                     fill
                     className="object-cover"
