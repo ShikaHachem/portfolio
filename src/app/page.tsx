@@ -109,7 +109,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/sugar-deal-thumbnail.png"
+                    src="/sugar_thumbnail.png"
                     alt="The Sugar Deal"
                     fill
                     className="object-cover"
