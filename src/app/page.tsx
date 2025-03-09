@@ -74,19 +74,10 @@ export default function Page() {
 
       <section id="reviews" className="space-y-4 mt-12">
         <BlurFade delay={0.9}>
-          <h2 className="text-3xl font-bold">Film Reviews</h2>
+          <h2 className="text-3xl font-bold">Film Analysis & Reviews</h2>
         </BlurFade>
         <BlurFade delay={0.95}>
-          <p className="text-lg text-muted-foreground">Organized by genre, director, decade, or theme. Each review includes a brief summary, critical analysis (cinematography, storytelling, themes, performances), personal insights, and a rating system.</p>
-        </BlurFade>
-      </section>
-
-      <section id="essays" className="space-y-4 mt-12">
-        <BlurFade delay={1.0}>
-          <h2 className="text-3xl font-bold">Film Analysis & Essays</h2>
-        </BlurFade>
-        <BlurFade delay={1.05}>
-          <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, narrative structure, and comparisons between films or directors.</p>
+          <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, and narrative structure. Each review includes critical analysis of cinematography, storytelling, themes, performances, and personal insights.</p>
         </BlurFade>
       </section>
 
