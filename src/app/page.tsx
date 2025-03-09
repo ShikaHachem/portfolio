@@ -19,7 +19,7 @@ export default function Page() {
         <BlurFade delay={0.1}>
           <div>
             <Avatar className="mx-auto size-48 border">
-              <AvatarImage alt="Maha" src="/avatar.jpeg" />
+              <AvatarImage alt="Maha" src="https://portfolio-shikahachem.vercel.app/avatar.jpeg" />
               <AvatarFallback>MA</AvatarFallback>
             </Avatar>
           </div>
@@ -108,7 +108,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <img
-                    src="/sugar_thumbnail.png"
+                    src="https://portfolio-shikahachem.vercel.app/sugar_thumbnail.png"
                     alt="The Sugar Deal"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
@@ -141,7 +141,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <img
-                    src="/wonderful_thumbnail.jpg"
+                    src="https://portfolio-shikahachem.vercel.app/wonderful_thumbnail.jpg"
                     alt="It's a Wonderful Life"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
@@ -161,7 +161,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <img
-                    src="/Titane_thumbnail.jpg"
+                    src="https://portfolio-shikahachem.vercel.app/Titane_thumbnail.jpg"
                     alt="Titane"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
@@ -181,7 +181,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <img
-                    src="/Vermiglio_thumbnail.jpg"
+                    src="https://portfolio-shikahachem.vercel.app/Vermiglio_thumbnail.jpg"
                     alt="Vermiglio"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
