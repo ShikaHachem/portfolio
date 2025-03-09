@@ -1,6 +1,33 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
+// Define interfaces for the data structure
+interface WorkExperience {
+  company: string;
+  href: string;
+  badges: readonly string[];
+  location: string;
+  title: string;
+  start: string;
+  end: string;
+  description: string;
+  logoUrl?: string; // Optional logo URL
+}
+
+interface Education {
+  school: string;
+  href: string;
+  degree: string;
+  start: string;
+  end: string;
+  description?: string;
+}
+
+interface Language {
+  name: string;
+  level: string;
+}
+
 export const DATA = {
   name: "Maha",
   initials: "MA",
@@ -74,12 +101,13 @@ export const DATA = {
       title: "Admin & Communication Assistant",
       start: "July 2017",
       end: "November 2020",
+      logoUrl: "/placeholder-logo.png", // Adding a default logo
       description: [
         "Assist management with administrative tasks",
         "Ensure internal and external communication"
       ].join("\n"),
     },
-  ],
+  ] as readonly WorkExperience[],
   education: [
     {
       school: "Centre de Formation de Tunis",
@@ -104,7 +132,7 @@ export const DATA = {
       start: "2017",
       end: "2019",
     },
-  ],
+  ] as readonly Education[],
   languages: [
     {
       name: "English",
@@ -122,7 +150,7 @@ export const DATA = {
       name: "Spanish",
       level: "Beginner",
     },
-  ],
+  ] as readonly Language[],
   contact: {
     social: {
       email: {
