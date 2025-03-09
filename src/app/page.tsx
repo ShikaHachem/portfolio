@@ -87,14 +87,10 @@ export default function Page() {
             <Link href="/blog/rick-and-morty-birthday">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src="https://via.placeholder.com/800x400?text=Rick+and+Morty+Birthday+Video"
                     alt="Rick and Morty Birthday Video"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -111,14 +107,10 @@ export default function Page() {
             <Link href="/blog/the-sugar-deal">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src="/sugar_thumbnail.png"
                     alt="The Sugar Deal"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -148,14 +140,10 @@ export default function Page() {
             <Link href="/blog/its-a-wonderful-life">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src="/wonderful_thumbnail.jpg"
                     alt="It's a Wonderful Life"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -172,14 +160,10 @@ export default function Page() {
             <Link href="/blog/titane">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src="/Titane_thumbnail.jpg"
                     alt="Titane"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -196,14 +180,10 @@ export default function Page() {
             <Link href="/blog/vermiglio">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
-                  <Image
+                  <img
                     src="/Vermiglio_thumbnail.jpg"
                     alt="Vermiglio"
-                    fill
-                    className="object-cover"
-                    quality={90}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
