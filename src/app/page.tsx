@@ -8,6 +8,9 @@ import { DATA } from "@/data/resume";
 import { ScrollButton } from "@/components/scroll-button";
 import { BlogPreview } from "@/components/blog-preview";
 import { ArrowDownIcon } from "lucide-react";
+import Link from "next/link";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -79,6 +82,52 @@ export default function Page() {
         <BlurFade delay={0.95}>
           <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, and narrative structure. Each review includes critical analysis of cinematography, storytelling, themes, performances, and personal insights.</p>
         </BlurFade>
+        <BlurFade delay={1.0}>
+          <div className="grid gap-4 md:grid-cols-2 mt-6">
+            <Link href="/blog/its-a-wonderful-life">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/wonderful-life-thumbnail.png"
+                    alt="It's a Wonderful Life"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>It&apos;s a Wonderful Life Review</CardTitle>
+                  <CardDescription>
+                    September 8, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">An in-depth analysis of Frank Capra's 1946 masterpiece that explores the profound impact of one person's life on an entire community.</p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/blog/its-a-wonderful-life#film-analysis-its-a-wonderful-life-1946">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/wonderful-life-analysis-thumbnail.png"
+                    alt="It's a Wonderful Life Analysis"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Film Analysis: It&apos;s a Wonderful Life</CardTitle>
+                  <CardDescription>
+                    September 8, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Exploring the themes of fate, sacrifice, and human connection in Frank Capra's timeless classic.</p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </BlurFade>
       </section>
 
       <section id="hows_made" className="space-y-4 mt-12">
@@ -87,6 +136,31 @@ export default function Page() {
         </BlurFade>
         <BlurFade delay={1.15}>
           <p className="text-lg text-muted-foreground">Deep dives into filmmaking techniques such as editing, lighting, set design, and more. Case studies of great directors and their unique styles.</p>
+        </BlurFade>
+        <BlurFade delay={1.2}>
+          <div className="grid gap-4 md:grid-cols-2 mt-6">
+            <Link href="/blog/its-a-wonderful-life#how-its-a-wonderful-life-was-made">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/wonderful-life-making-thumbnail.png"
+                    alt="How It's a Wonderful Life Was Made"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>How It&apos;s a Wonderful Life Was Made</CardTitle>
+                  <CardDescription>
+                    September 8, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Explore the innovative filmmaking techniques behind Frank Capra's classic, from deep focus cinematography to special effects and improvised moments.</p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </BlurFade>
       </section>
 
