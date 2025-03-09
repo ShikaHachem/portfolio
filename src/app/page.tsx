@@ -105,6 +105,27 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
+            <Link href="/blog/titane">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/titane-thumbnail.png"
+                    alt="Titane"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Titane Review</CardTitle>
+                  <CardDescription>
+                    September 9, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">An analysis of Julia Ducournau&apos;s provocative film that challenges our understanding of identity, body autonomy, and human connection.</p>
+                </CardContent>
+              </Card>
+            </Link>
             <Link href="/blog/its-a-wonderful-life#film-analysis-its-a-wonderful-life-1946">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
@@ -123,6 +144,27 @@ export default function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">Exploring the themes of fate, sacrifice, and human connection in Frank Capra&apos;s timeless classic.</p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/blog/titane#film-analysis-titane-2021">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/titane-analysis-thumbnail.png"
+                    alt="Titane Analysis"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Film Analysis: Titane</CardTitle>
+                  <CardDescription>
+                    September 9, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Dissecting identity, gender, and transformation in Julia Ducournau&apos;s boundary-pushing film.</p>
                 </CardContent>
               </Card>
             </Link>
@@ -157,6 +199,27 @@ export default function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">Explore the innovative filmmaking techniques behind Frank Capra&apos;s classic, from deep focus cinematography to special effects and improvised moments.</p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/blog/titane#how-its-made-titane-2021">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/titane-making-thumbnail.png"
+                    alt="How Titane Was Made"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>How Titane Was Made</CardTitle>
+                  <CardDescription>
+                    September 9, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Discover the bold filmmaking techniques behind Julia Ducournau&apos;s visceral masterpiece, from striking cinematography to powerful sound design.</p>
                 </CardContent>
               </Card>
             </Link>
