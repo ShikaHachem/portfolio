@@ -92,6 +92,9 @@ export default function Page() {
                     alt="Rick and Morty Birthday Video"
                     fill
                     className="object-cover"
+                    quality={90}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <CardHeader>
@@ -113,6 +116,9 @@ export default function Page() {
                     alt="The Sugar Deal"
                     fill
                     className="object-cover"
+                    quality={90}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <CardHeader>
@@ -147,6 +153,9 @@ export default function Page() {
                     alt="It's a Wonderful Life"
                     fill
                     className="object-cover"
+                    quality={90}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <CardHeader>
@@ -168,6 +177,9 @@ export default function Page() {
                     alt="Titane"
                     fill
                     className="object-cover"
+                    quality={90}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <CardHeader>
@@ -189,6 +201,9 @@ export default function Page() {
                     alt="Vermiglio"
                     fill
                     className="object-cover"
+                    quality={90}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <CardHeader>
