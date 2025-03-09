@@ -38,6 +38,7 @@ export const DATA = {
       title: "Assistant Director",
       start: "July 2023",
       end: "Present",
+      logoUrl: "/Logo_Hannibal_TV.gif",
       description: [
         "Close collaboration with director to ensure creative and technical quality of teleshopping segments",
         "Assistance with VTR shoots, meticulously selecting angles and compositions",
@@ -55,6 +56,7 @@ export const DATA = {
       title: "Production Assistant",
       start: "November 2022",
       end: "July 2023",
+      logoUrl: "/ifm.png",
       description: [
         "Participation in casting and selection of hosts/guests",
         "In-depth research for creative concept development and new shows",

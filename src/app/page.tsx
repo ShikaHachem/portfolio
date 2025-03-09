@@ -134,7 +134,7 @@ export default function Page() {
                     subtitle={job.title}
                     period={`${job.start} - ${job.end}`}
                     description={job.description}
-                    logoUrl="/placeholder-logo.png"
+                    logoUrl={job.logoUrl || "/placeholder-logo.png"}
                     altText={job.company}
                     badges={job.badges}
                   />
