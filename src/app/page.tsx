@@ -126,6 +126,27 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
+            <Link href="/blog/vermiglio">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/vermiglio-thumbnail.png"
+                    alt="Vermiglio"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Vermiglio Review</CardTitle>
+                  <CardDescription>
+                    September 10, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">An analysis of Maura Delpero&apos;s meditative film set in post-WWII Italy that explores isolation, memory, and female resilience.</p>
+                </CardContent>
+              </Card>
+            </Link>
             <Link href="/blog/its-a-wonderful-life#film-analysis-its-a-wonderful-life-1946">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
@@ -165,6 +186,27 @@ export default function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">Dissecting identity, gender, and transformation in Julia Ducournau&apos;s boundary-pushing film.</p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/blog/vermiglio#film-analysis-vermiglio-2022">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/vermiglio-analysis-thumbnail.png"
+                    alt="Vermiglio Analysis"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Film Analysis: Vermiglio</CardTitle>
+                  <CardDescription>
+                    September 10, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Analyzing isolation, memory, and female resilience in Maura Delpero&apos;s haunting post-war drama.</p>
                 </CardContent>
               </Card>
             </Link>
@@ -220,6 +262,27 @@ export default function Page() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">Discover the bold filmmaking techniques behind Julia Ducournau&apos;s visceral masterpiece, from striking cinematography to powerful sound design.</p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/blog/vermiglio#how-vermiglio-2022-was-made">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/vermiglio-making-thumbnail.png"
+                    alt="How Vermiglio Was Made"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>How Vermiglio Was Made</CardTitle>
+                  <CardDescription>
+                    September 10, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Explore the meditative filmmaking approach of Maura Delpero, from static wide shots and natural lighting to the powerful use of silence in storytelling.</p>
                 </CardContent>
               </Card>
             </Link>
