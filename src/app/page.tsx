@@ -95,6 +95,31 @@ export default function Page() {
           <p className="text-lg text-muted-foreground">Explore my creative projects and storytelling efforts.</p>
         </BlurFade>
         <BlurFade delay={1.0}>
+          {/* Sugar Deal - Full Width */}
+          <div className="grid gap-4 mt-6">
+            <Link href="/blog/the-sugar-deal">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-64 w-full">
+                  <img
+                    src="/sugar_thumbnail.png"
+                    alt="The Sugar Deal"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>The Sugar Deal</CardTitle>
+                  <CardDescription>
+                    March 9, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Exploring the complex dynamics and ethical questions in an unconventional relationship arrangement.</p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+          
+          {/* Rick and Morty + Through the Window - 2 Columns */}
           <div className="grid gap-4 md:grid-cols-2 mt-6">
             <Link href="/blog/rick-and-morty-birthday">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
@@ -116,23 +141,23 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/blog/the-sugar-deal">
+            <Link href="/blog/through-the-window">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <img
-                    src="/sugar_thumbnail.png"
-                    alt="The Sugar Deal"
+                    src="/through-the-window-thumbnail.png"
+                    alt="Through the Window: A Short Film Script"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>The Sugar Deal</CardTitle>
+                  <CardTitle>Through the Window: A Short Film Script</CardTitle>
                   <CardDescription>
-                    March 9, 2024
+                    March 10, 2024
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Exploring the complex dynamics and ethical questions in an unconventional relationship arrangement.</p>
+                  <p className="text-muted-foreground">A short film script about observation, silence, and the disconnect between perception and understanding.</p>
                 </CardContent>
               </Card>
             </Link>
