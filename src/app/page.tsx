@@ -11,10 +11,22 @@ import { ArrowDownIcon } from "lucide-react";
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { HomeNavigation } from "@/components/home-navigation";
+
+// Define the homepage sections for navigation
+const homeSections = [
+  { id: "intro", title: "Intro" },
+  { id: "about", title: "About Me" },
+  { id: "creations", title: "My Creations" },
+  { id: "reviews", title: "Film Analysis" },
+  { id: "resume", title: "Experience" }
+];
 
 export default function Page() {
   return (
     <main className="flex min-h-[100dvh] flex-col items-center p-4">
+      <HomeNavigation sections={homeSections} />
+      
       <div className="max-w-2xl space-y-8 text-center">
         <BlurFade delay={0.1}>
           <div>

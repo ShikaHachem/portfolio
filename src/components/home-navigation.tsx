@@ -4,19 +4,22 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-interface Section {
-  id: string;
-  title: string;
+interface HomeNavigationProps {
+  sections: Array<{
+    id: string;
+    title: string;
+  }>;
 }
 
-interface TableOfContentsProps {
-  sections: Section[];
-}
-
-export function TableOfContents({ sections }: TableOfContentsProps) {
-  const [activeSection, setActiveSection] = useState<string>(sections[0]?.id);
+export function HomeNavigation({ sections }: HomeNavigationProps) {
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
+    // Initialize with the first section if it exists
+    if (sections.length > 0 && !activeSection) {
+      setActiveSection(sections[0].id);
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +40,7 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
     });
 
     return () => observer.disconnect();
-  }, [sections]);
+  }, [sections, activeSection]);
 
   // If no sections are provided or sections array is empty, don't render the component
   if (!sections || sections.length === 0) {
@@ -49,16 +52,14 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      // Update the active section manually to ensure it changes immediately
+      // Update the active section manually
       setActiveSection(sectionId);
-      // Update the URL to reflect the anchor
-      history.pushState(null, '', `#${sectionId}`);
     }
   };
 
   return (
-    <nav className="hidden lg:block sticky top-4 ml-4 h-[calc(100vh-2rem)] max-h-[calc(100vh-2rem)] min-w-[150px] overflow-auto">
-      <div className="relative flex flex-col gap-2 pl-4 text-sm">
+    <nav className="hidden lg:block fixed top-1/2 right-8 transform -translate-y-1/2 z-50">
+      <div className="relative flex flex-col gap-3 pl-4">
         <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
         {sections.map((section) => {
           const isActive = section.id === activeSection;
@@ -74,13 +75,24 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
               )}
               onClick={(e) => handleClick(e, section.id)}
             >
+              <div className="flex items-center">
+                <div className={cn(
+                  "h-2 w-2 rounded-full mr-2",
+                  isActive ? "bg-primary" : "bg-muted"
+                )}/>
+                <span className={cn(
+                  "text-sm",
+                  isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                )}>
+                  {section.title}
+                </span>
+              </div>
               {isActive && (
                 <motion.div
-                  layoutId="active-section"
+                  layoutId="active-home-section"
                   className="absolute -left-px top-0 h-full w-px bg-primary"
                 />
               )}
-              {section.title}
             </a>
           );
         })}
