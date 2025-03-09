@@ -65,7 +65,7 @@ export const ExperienceItem = ({
           </div>
           
           <blockquote className="italic border-l-2 border-primary/50 pl-4 text-muted-foreground my-6">
-            "{introduction}"
+            &ldquo;{introduction}&rdquo;
           </blockquote>
           
           <Accordion type="single" collapsible className="w-full">

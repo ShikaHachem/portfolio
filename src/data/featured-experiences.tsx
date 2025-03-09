@@ -16,7 +16,7 @@ export const FEATURED_EXPERIENCES: ExperienceItemProps[] = [
       },
       {
         title: "My 15 Minutes of Fame",
-        content: "Speaking of that pillow segment – what a trip! There I was, on actual TV, demonstrating pillows with the biggest grin on my face. My mom was BEYOND excited when I told her I'd be on screen. She set a reminder and everything, but then missed it! When she called me in a panic, I reached out to the team to find out when it would air again. \"Sorry,\" they told me, \"those pillows sold out so fast after your segment that we can't air it again until we get more stock.\" I tried to play it cool, but secretly? I was pretty proud that our segment helped clear out their entire inventory in days!"
+        content: "Speaking of that pillow segment – what a trip! There I was, on actual TV, demonstrating pillows with the biggest grin on my face. My mom was BEYOND excited when I told her I'd be on screen. She set a reminder and everything, but then missed it! When she called me in a panic, I reached out to the team to find out when it would air again. 'Sorry,' they told me, 'those pillows sold out so fast after your segment that we can't air it again until we get more stock.' I tried to play it cool, but secretly? I was pretty proud that our segment helped clear out their entire inventory in days!"
       },
       {
         title: "When Everything Goes Sideways",
