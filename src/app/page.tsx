@@ -101,7 +101,7 @@ export default function Page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">An in-depth analysis of Frank Capra's 1946 masterpiece that explores the profound impact of one person's life on an entire community.</p>
+                  <p className="text-muted-foreground">An in-depth analysis of Frank Capra&apos;s 1946 masterpiece that explores the profound impact of one person&apos;s life on an entire community.</p>
                 </CardContent>
               </Card>
             </Link>
@@ -122,7 +122,7 @@ export default function Page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Exploring the themes of fate, sacrifice, and human connection in Frank Capra's timeless classic.</p>
+                  <p className="text-muted-foreground">Exploring the themes of fate, sacrifice, and human connection in Frank Capra&apos;s timeless classic.</p>
                 </CardContent>
               </Card>
             </Link>
@@ -156,7 +156,7 @@ export default function Page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Explore the innovative filmmaking techniques behind Frank Capra's classic, from deep focus cinematography to special effects and improvised moments.</p>
+                  <p className="text-muted-foreground">Explore the innovative filmmaking techniques behind Frank Capra&apos;s classic, from deep focus cinematography to special effects and improvised moments.</p>
                 </CardContent>
               </Card>
             </Link>
