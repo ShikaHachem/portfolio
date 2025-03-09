@@ -83,7 +83,28 @@ export default function Page() {
           <p className="text-lg text-muted-foreground">Explore my creative projects and storytelling efforts.</p>
         </BlurFade>
         <BlurFade delay={1.0}>
-          <div className="grid gap-4 md:grid-cols-1 mt-6">
+          <div className="grid gap-4 md:grid-cols-2 mt-6">
+            <Link href="/blog/rick-and-morty-birthday">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/rick-morty-thumbnail.png"
+                    alt="Rick and Morty Birthday Video"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>Personalized Rick and Morty Birthday Video</CardTitle>
+                  <CardDescription>
+                    March 10, 2025
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">A custom Rick and Morty animation created as a birthday gift, showcasing storytelling and audio-visual production skills.</p>
+                </CardContent>
+              </Card>
+            </Link>
             <Link href="/blog/the-sugar-deal">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
