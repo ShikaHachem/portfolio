@@ -75,15 +75,49 @@ export default function Page() {
         </BlurFade>
       </section>
 
-      <section id="reviews" className="space-y-4 mt-12">
+      <section id="creations" className="space-y-4 mt-12">
         <BlurFade delay={0.9}>
-          <h2 className="text-3xl font-bold">Film Analysis & Reviews</h2>
+          <h2 className="text-3xl font-bold">My Creations</h2>
         </BlurFade>
         <BlurFade delay={0.95}>
-          <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, and narrative structure. Each review includes critical analysis of cinematography, storytelling, themes, performances, and personal insights.</p>
+          <p className="text-lg text-muted-foreground">Explore my creative projects and storytelling efforts.</p>
         </BlurFade>
         <BlurFade delay={1.0}>
-          <div className="grid gap-4 md:grid-cols-2 mt-6">
+          <div className="grid gap-4 md:grid-cols-1 mt-6">
+            <Link href="/blog/the-sugar-deal">
+              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src="/sugar-deal-thumbnail.png"
+                    alt="The Sugar Deal"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>The Sugar Deal</CardTitle>
+                  <CardDescription>
+                    March 9, 2024
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Exploring the complex dynamics and ethical questions in an unconventional relationship arrangement.</p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </BlurFade>
+      </section>
+
+      <section id="reviews" className="space-y-4 mt-12">
+        <BlurFade delay={1.1}>
+          <h2 className="text-3xl font-bold">Film Analysis & Reviews</h2>
+        </BlurFade>
+        <BlurFade delay={1.15}>
+          <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, and narrative structure. Each review includes critical analysis of cinematography, storytelling, themes, performances, and personal insights.</p>
+        </BlurFade>
+        <BlurFade delay={1.2}>
+          <div className="grid gap-4 md:grid-cols-3 mt-6">
             <Link href="/blog/its-a-wonderful-life">
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
@@ -147,160 +181,7 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/blog/its-a-wonderful-life#film-analysis-its-a-wonderful-life-1946">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/wonderful-life-analysis-thumbnail.png"
-                    alt="It's a Wonderful Life Analysis"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>Film Analysis: It&apos;s a Wonderful Life</CardTitle>
-                  <CardDescription>
-                    September 8, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Exploring the themes of fate, sacrifice, and human connection in Frank Capra&apos;s timeless classic.</p>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/blog/titane#film-analysis-titane-2021">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/titane-analysis-thumbnail.png"
-                    alt="Titane Analysis"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>Film Analysis: Titane</CardTitle>
-                  <CardDescription>
-                    September 9, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Dissecting identity, gender, and transformation in Julia Ducournau&apos;s boundary-pushing film.</p>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/blog/vermiglio#film-analysis-vermiglio-2022">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/vermiglio-analysis-thumbnail.png"
-                    alt="Vermiglio Analysis"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>Film Analysis: Vermiglio</CardTitle>
-                  <CardDescription>
-                    September 10, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Analyzing isolation, memory, and female resilience in Maura Delpero&apos;s haunting post-war drama.</p>
-                </CardContent>
-              </Card>
-            </Link>
           </div>
-        </BlurFade>
-      </section>
-
-      <section id="hows_made" className="space-y-4 mt-12">
-        <BlurFade delay={1.1}>
-          <h2 className="text-3xl font-bold">How It&apos;s Made</h2>
-        </BlurFade>
-        <BlurFade delay={1.15}>
-          <p className="text-lg text-muted-foreground">Deep dives into filmmaking techniques such as editing, lighting, set design, and more. Case studies of great directors and their unique styles.</p>
-        </BlurFade>
-        <BlurFade delay={1.2}>
-          <div className="grid gap-4 md:grid-cols-2 mt-6">
-            <Link href="/blog/its-a-wonderful-life#how-its-a-wonderful-life-was-made">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/wonderful-life-making-thumbnail.png"
-                    alt="How It's a Wonderful Life Was Made"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>How It&apos;s a Wonderful Life Was Made</CardTitle>
-                  <CardDescription>
-                    September 8, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Explore the innovative filmmaking techniques behind Frank Capra&apos;s classic, from deep focus cinematography to special effects and improvised moments.</p>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/blog/titane#how-its-made-titane-2021">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/titane-making-thumbnail.png"
-                    alt="How Titane Was Made"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>How Titane Was Made</CardTitle>
-                  <CardDescription>
-                    September 9, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Discover the bold filmmaking techniques behind Julia Ducournau&apos;s visceral masterpiece, from striking cinematography to powerful sound design.</p>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/blog/vermiglio#how-vermiglio-2022-was-made">
-              <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src="/vermiglio-making-thumbnail.png"
-                    alt="How Vermiglio Was Made"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle>How Vermiglio Was Made</CardTitle>
-                  <CardDescription>
-                    September 10, 2024
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Explore the meditative filmmaking approach of Maura Delpero, from static wide shots and natural lighting to the powerful use of silence in storytelling.</p>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-        </BlurFade>
-      </section>
-
-      <section id="blog" className="w-full max-w-4xl space-y-8 mt-12">
-        <BlurFade delay={1.2}>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">Latest Stories</h2>
-            <p className="text-lg text-muted-foreground">
-              Explore my latest film analysis, reviews, and behind-the-scenes stories.
-            </p>
-          </div>
-        </BlurFade>
-        <BlurFade delay={1.25}>
-          <BlogPreview />
         </BlurFade>
       </section>
 
