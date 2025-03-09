@@ -143,7 +143,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/wonderful-life-thumbnail.png"
+                    src="/wonderful_thumbnail.jpg"
                     alt="It's a Wonderful Life"
                     fill
                     className="object-cover"
@@ -164,7 +164,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/titane-thumbnail.png"
+                    src="/Titane_thumbnail.jpg"
                     alt="Titane"
                     fill
                     className="object-cover"
@@ -185,7 +185,7 @@ export default function Page() {
               <Card className="h-full overflow-hidden hover:border-primary/50 transition-colors">
                 <div className="relative h-48 w-full">
                   <Image
-                    src="/vermiglio-thumbnail.png"
+                    src="/Vermiglio_thumbnail.jpg"
                     alt="Vermiglio"
                     fill
                     className="object-cover"
