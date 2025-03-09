@@ -12,6 +12,8 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { HomeNavigation } from "@/components/home-navigation";
+import { ExperienceShowcase } from "@/components/experience-timeline";
+import { FEATURED_EXPERIENCES } from "@/data/featured-experiences";
 
 // Define the homepage sections for navigation
 const homeSections = [
@@ -19,6 +21,7 @@ const homeSections = [
   { id: "about", title: "About Me" },
   { id: "creations", title: "My Creations" },
   { id: "reviews", title: "Film Analysis" },
+  { id: "featured", title: "Featured" },
   { id: "resume", title: "Experience" }
 ];
 
@@ -235,6 +238,19 @@ export default function Page() {
               </Card>
             </Link>
           </div>
+        </BlurFade>
+      </section>
+
+      {/* Featured Experiences */}
+      <section id="featured" className="space-y-4 mt-16 scroll-mt-16">
+        <BlurFade delay={1.25}>
+          <h2 className="text-3xl font-bold">Featured Experiences</h2>
+        </BlurFade>
+        <BlurFade delay={1.3}>
+          <p className="text-lg text-muted-foreground">Stories from my most formative professional journeys</p>
+        </BlurFade>
+        <BlurFade delay={1.35}>
+          <ExperienceShowcase items={FEATURED_EXPERIENCES} />
         </BlurFade>
       </section>
 
