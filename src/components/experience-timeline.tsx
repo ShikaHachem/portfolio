@@ -54,10 +54,14 @@ export const ExperienceItem = ({
       <Card className="overflow-hidden hover:shadow-md transition-all duration-300 border-primary/10">
         <div className="p-6">
           <div className="flex items-center gap-4 mb-6">
-            <Avatar className="size-16 border">
-              <AvatarImage alt={logoAlt} src={logo} />
-              <AvatarFallback>{logoAlt[0]}</AvatarFallback>
-            </Avatar>
+            <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded border">
+              <Image 
+                src={logo} 
+                alt={logoAlt} 
+                fill 
+                className="object-contain"
+              />
+            </div>
             <div>
               <h3 className="text-2xl font-bold">{title}</h3>
               <p className="text-muted-foreground">{role} • {period}</p>
