@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
+import { TFunction } from "next-i18next";
 
 // Define interfaces for the data structure
 interface WorkExperience {
@@ -28,137 +29,98 @@ interface Language {
   level: string;
 }
 
-export const DATA = {
-  name: "Maha",
-  initials: "MA",
-  url: "https://maha.io",
-  location: "Tunisia",
-  locationLink: "https://www.google.com/maps/place/tunisia",
-  description:
-    "Film Analyst and Assistant Director exploring the art of storytelling through cinema.",
-  summary:
-    "A passionate cinephile with a background in film production and directing. Through my work in television and radio, I've developed a deep understanding of storytelling, visual composition, and the technical aspects of production. My analysis focuses on uncovering the layers of meaning in cinema, from symbolism to directorial techniques.",
-  avatarUrl: "/me.png",
-  skills: [
-    "Creative Direction",
-    "Production Management",
-    "Film Analysis",
-    "Team Leadership",
-    "Problem Solving",
-    "Adobe Suite",
-    "Premiere Pro",
-    "Photoshop",
-    "After Effects",
-    "Bilingual (EN/FR)",
-    "Arabic Native",
-  ],
+export const getResumeData = (t: TFunction) => ({
+  name: t("resume:name"),
+  initials: t("resume:initials"),
+  url: t("resume:url"),
+  location: t("resume:location"),
+  locationLink: t("resume:location_link"),
+  description: t("resume:description"),
+  summary: t("resume:summary"),
+  avatarUrl: t("resume:avatar_url"),
+  skills: (t("resume:skills", { returnObjects: true }) as string[]),
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: t("resume:navbar_home_label") },
+    { href: "/blog", icon: NotebookIcon, label: t("resume:navbar_blog_label") },
   ],
   work: [
     {
-      company: "HANNIBAL TV",
+      company: t("resume:work_hannibal_company"),
       href: "#",
-      badges: [],
-      location: "Tunisia",
-      title: "Assistant Director",
-      start: "July 2023",
-      end: "Present",
+      badges: [], // Badges are not typically translated unless they are full strings
+      location: t("resume:work_hannibal_location"),
+      title: t("resume:work_hannibal_title"),
+      start: t("resume:work_hannibal_start"),
+      end: t("resume:work_hannibal_end"),
       logoUrl: "/Logo_Hannibal_TV.gif",
-      description: [
-        "Close collaboration with director to ensure creative and technical quality of teleshopping segments",
-        "Assistance with VTR shoots, meticulously selecting angles and compositions",
-        "Coordination between production and post-production teams",
-        "On-screen appearances as an actress",
-        "Management and correction of continuity issues",
-        "Mediation between director and editor for voice-over synchronization optimization"
-      ].join("\n"),
+      description: t("resume:work_hannibal_description"),
     },
     {
-      company: "RADIO IFM",
+      company: t("resume:work_radio_ifm_company"),
       href: "#",
       badges: [],
-      location: "Tunisia",
-      title: "Production Assistant",
-      start: "November 2022",
-      end: "July 2023",
+      location: t("resume:work_radio_ifm_location"),
+      title: t("resume:work_radio_ifm_title"),
+      start: t("resume:work_radio_ifm_start"),
+      end: t("resume:work_radio_ifm_end"),
       logoUrl: "/ifm.png",
-      description: [
-        "Participation in casting and selection of hosts/guests",
-        "In-depth research for creative concept development and new shows",
-        "Logistics coordination, schedule management, and guest briefings",
-        "Development of editorial content and show rundowns",
-        "Supervision of reports, documentaries, vox pops, and interviews in French and English",
-        "Technical direction management and quick resolution of live technical issues"
-      ].join("\n"),
+      description: t("resume:work_radio_ifm_description"),
     },
     {
-      company: "STH",
+      company: t("resume:work_sth_company"),
       href: "#",
       badges: [],
-      location: "Tunisia",
-      title: "Admin & Communication Assistant",
-      start: "July 2017",
-      end: "November 2020",
-      logoUrl: "/placeholder-logo.png", // Adding a default logo
-      description: [
-        "Assist management with administrative tasks",
-        "Ensure internal and external communication"
-      ].join("\n"),
+      location: t("resume:work_sth_location"),
+      title: t("resume:work_sth_title"),
+      start: t("resume:work_sth_start"),
+      end: t("resume:work_sth_end"),
+      logoUrl: "/placeholder-logo.png", 
+      description: t("resume:work_sth_description"),
     },
   ] as readonly WorkExperience[],
   education: [
     {
-      school: "Centre de Formation de Tunis",
+      school: t("resume:education_cft_school"),
       href: "#",
-      degree: "BTS: Assistant Director",
-      start: "2020",
-      end: "2022",
-      description: [
-        "Cinema History",
-        "Cinematography",
-        "Scenario and Creative Writing",
-        "Esthétique de Film",
-        "Editing",
-        "Film Production",
-        "Visual Storytelling"
-      ].join("\n"),
+      degree: t("resume:education_cft_degree"),
+      start: t("resume:education_cft_start"),
+      end: t("resume:education_cft_end"),
+      description: t("resume:education_cft_description"),
     },
     {
-      school: "Faculté des Sciences Humaines et Sociales de Tunis",
+      school: t("resume:education_fshst_school"),
       href: "#",
-      degree: "License in English Literature and Civilization",
-      start: "2017",
-      end: "2019",
+      degree: t("resume:education_fshst_degree"),
+      start: t("resume:education_fshst_start"),
+      end: t("resume:education_fshst_end"),
     },
   ] as readonly Education[],
   languages: [
     {
-      name: "English",
-      level: "Bilingual",
+      name: t("resume:languages_english_name"),
+      level: t("resume:languages_english_level"),
     },
     {
-      name: "French",
-      level: "Bilingual",
+      name: t("resume:languages_french_name"),
+      level: t("resume:languages_french_level"),
     },
     {
-      name: "Arabic",
-      level: "Native",
+      name: t("resume:languages_arabic_name"),
+      level: t("resume:languages_arabic_level"),
     },
     {
-      name: "Spanish",
-      level: "Beginner",
+      name: t("resume:languages_spanish_name"),
+      level: t("resume:languages_spanish_level"),
     },
   ] as readonly Language[],
   contact: {
     social: {
       email: {
-        name: "Email",
-        url: "mailto:lhaddad.maha@gmail.com",
+        name: t("resume:contact_social_email_name"),
+        url: t("resume:contact_social_email_url"),
         icon: Icons.email,
         navbar: true,
       },
     },
   },
-} as const;
+} as const);
