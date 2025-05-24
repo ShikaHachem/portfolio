@@ -1,10 +1,12 @@
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { useTranslation } from 'next-i18next';
 import { ResumeCard } from "@/components/resume-card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { DATA } from "@/data/resume";
+import { getResumeData } from "@/data/resume";
 import { ScrollButton } from "@/components/scroll-button";
 import { BlogPreview } from "@/components/blog-preview";
 import { ArrowDownIcon } from "lucide-react";
@@ -15,27 +17,35 @@ import { HomeNavigation } from "@/components/home-navigation";
 import { ExperienceShowcase } from "@/components/experience-timeline";
 import { FEATURED_EXPERIENCES } from "@/data/featured-experiences";
 
-// Define the homepage sections for navigation
-const homeSections = [
-  { id: "intro", title: "Intro" },
-  { id: "about", title: "About Me" },
-  { id: "creations", title: "My Creations" },
-  { id: "reviews", title: "Film Analysis" },
-  { id: "featured", title: "Featured" },
-  { id: "resume", title: "Experience" }
-];
-
 export default function Page() {
+  const { t } = useTranslation(['common', 'resume']);
+  const DATA = getResumeData(t);
+
+  // Define the homepage sections for navigation
+  const homeSections = [
+    { id: "intro", title: t('common:home_nav_intro') },
+    { id: "about", title: t('common:home_nav_about_me') },
+    { id: "creations", title: t('common:home_nav_my_creations') },
+    { id: "reviews", title: t('common:home_nav_film_analysis') },
+    { id: "featured", title: t('common:home_nav_featured') },
+    { id: "resume", title: t('common:home_nav_experience') }
+  ];
+
   return (
     <main className="flex min-h-[100dvh] flex-col items-center p-4">
-      <HomeNavigation sections={homeSections} />
-      
-      <div className="max-w-2xl space-y-8 text-center">
-        <BlurFade delay={0.1}>
-          <div>
+      <div className="relative w-full max-w-6xl lg:flex lg:gap-x-12"> {/* Increased max-w for wider layout */}
+        {/* Main content area */}
+        <div className="flex-grow max-w-2xl mx-auto lg:mx-0 lg:max-w-none space-y-8 text-center lg:text-left"> {/* Adjusted max-w and margins */}
+          <div className="lg:hidden"> {/* Mobile: HomeNavigation at the top (or could be placed differently) */}
+            <HomeNavigation sections={homeSections} />
+          </div>
+          
+          <div className="space-y-8 text-center"> {/* Original content centering div, kept for hero section */}
+            <BlurFade delay={0.1}>
+              <div>
             <Avatar className="mx-auto size-48 border">
-              <AvatarImage alt="Maha" src="/avatar.jpeg" />
-              <AvatarFallback>MA</AvatarFallback>
+              <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+              <AvatarFallback>{DATA.initials}</AvatarFallback>
             </Avatar>
           </div>
         </BlurFade>
@@ -44,44 +54,44 @@ export default function Page() {
           <BlurFadeText
             delay={0.2}
             className="text-4xl font-bold tracking-tight sm:text-6xl"
-            text="Hi, I&apos;m Maha 👋"
+            text={t('common:hero_greeting')}
           />
           
           <BlurFadeText
             delay={0.3}
             className="text-xl text-muted-foreground text-right"
-            text="A cinephile exploring the art of storytelling through the lens of film analysis and cinematography"
+            text={t('common:hero_bio')}
           />
         </div>
       </div>
 
       <section id="intro" className="space-y-4 mt-12">
         <BlurFade delay={0.5}>
-          <h2 className="text-3xl font-bold">Through the Film Mirror</h2>
+          <h2 className="text-3xl font-bold">{t('common:intro_title')}</h2>
         </BlurFade>
         <BlurFade delay={0.55}>
-          <p className="text-lg text-muted-foreground">Film is more than just moving images—it&apos;s a mirror reflecting human nature, society, and the subconscious. My approach to film analysis blends a passion for storytelling with a search for deeper meaning, uncovering the layers of symbolism, character development, and directorial intent that make cinema an art form.</p>
+          <p className="text-lg text-muted-foreground">{t('common:intro_p1')}</p>
         </BlurFade>
         <BlurFade delay={0.6}>
-          <p className="text-lg text-muted-foreground">Drawing from my love for immersive narratives, self-development themes, and the power of visual metaphors, I explore how films shape emotions, challenge perceptions, and leave lasting imprints on the mind.</p>
+          <p className="text-lg text-muted-foreground">{t('common:intro_p2')}</p>
         </BlurFade>
         <BlurFade delay={0.65}>
-          <p className="text-lg text-muted-foreground">Through this platform, I aim to dissect cinema with depth and clarity, offering insights that go beyond the screen and into the essence of storytelling.</p>
+          <p className="text-lg text-muted-foreground">{t('common:intro_p3')}</p>
         </BlurFade>
       </section>
 
       <section id="about" className="space-y-4 mt-12">
         <BlurFade delay={0.7}>
-          <h2 className="text-3xl font-bold">About Me</h2>
+          <h2 className="text-3xl font-bold">{t('common:about_me_title')}</h2>
         </BlurFade>
         <BlurFade delay={0.75}>
-          <p className="text-lg text-muted-foreground">I&apos;m Maha, a film enthusiast with a deep love for storytelling, symbolism, and the art of cinema. Whether it&apos;s the psychological depth of Shutter Island, the poetic beauty of In the Mood for Love, or the complex character arcs of Breaking Bad, I&apos;m drawn to films that leave a lasting impact.</p>
+          <p className="text-lg text-muted-foreground">{t('common:about_me_p1')}</p>
         </BlurFade>
         <BlurFade delay={0.8}>
-          <p className="text-lg text-muted-foreground">With a background in filmmaking and a passion for analysis, I created this platform to explore cinema beyond the surface—diving into themes, cinematography, and the nuances that make each film unique. This space is not just about reviews but about understanding the essence of storytelling and its power to shape perception.</p>
+          <p className="text-lg text-muted-foreground">{t('common:about_me_p2')}</p>
         </BlurFade>
         <BlurFade delay={0.85}>
-          <p className="text-lg text-muted-foreground">This journey is a step toward refining my voice as a film analyst and storyteller.</p>
+          <p className="text-lg text-muted-foreground">{t('common:about_me_p3')}</p>
         </BlurFade>
         <BlurFade delay={0.9}>
           <div className="flex justify-center mt-6">
@@ -92,10 +102,10 @@ export default function Page() {
 
       <section id="creations" className="space-y-4 mt-12">
         <BlurFade delay={0.9}>
-          <h2 className="text-3xl font-bold">My Creations</h2>
+          <h2 className="text-3xl font-bold">{t('common:my_creations_title')}</h2>
         </BlurFade>
         <BlurFade delay={0.95}>
-          <p className="text-lg text-muted-foreground">Explore my creative projects and storytelling efforts.</p>
+          <p className="text-lg text-muted-foreground">{t('common:my_creations_p1')}</p>
         </BlurFade>
         <BlurFade delay={1.0}>
           {/* Sugar Deal - Full Width */}
@@ -110,13 +120,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>The Sugar Deal</CardTitle>
+                  <CardTitle>{t('common:my_creations_sugar_deal_title')}</CardTitle>
                   <CardDescription>
-                    March 9, 2024
+                    {t('common:my_creations_sugar_deal_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">Exploring the complex dynamics and ethical questions in an unconventional relationship arrangement.</p>
+                  <p className="text-muted-foreground">{t('common:my_creations_sugar_deal_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -134,13 +144,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>Personalized Rick and Morty Birthday Video</CardTitle>
+                  <CardTitle>{t('common:my_creations_rick_morty_title')}</CardTitle>
                   <CardDescription>
-                    March 10, 2025
+                    {t('common:my_creations_rick_morty_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">A custom Rick and Morty animation created as a birthday gift, showcasing storytelling and audio-visual production skills.</p>
+                  <p className="text-muted-foreground">{t('common:my_creations_rick_morty_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -154,13 +164,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>Through the Window: A Short Film Script</CardTitle>
+                  <CardTitle>{t('common:my_creations_through_window_title')}</CardTitle>
                   <CardDescription>
-                    March 10, 2024
+                    {t('common:my_creations_through_window_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">A short film script about observation, silence, and the disconnect between perception and understanding.</p>
+                  <p className="text-muted-foreground">{t('common:my_creations_through_window_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -170,10 +180,10 @@ export default function Page() {
 
       <section id="reviews" className="space-y-4 mt-12">
         <BlurFade delay={1.1}>
-          <h2 className="text-3xl font-bold">Film Analysis & Reviews</h2>
+          <h2 className="text-3xl font-bold">{t('common:film_analysis_title')}</h2>
         </BlurFade>
         <BlurFade delay={1.15}>
-          <p className="text-lg text-muted-foreground">In-depth breakdowns of movies focusing on symbolism, hidden meanings, directing techniques, character development, and narrative structure. Each review includes critical analysis of cinematography, storytelling, themes, performances, and personal insights.</p>
+          <p className="text-lg text-muted-foreground">{t('common:film_analysis_p1')}</p>
         </BlurFade>
         <BlurFade delay={1.2}>
           <div className="grid gap-4 md:grid-cols-3 mt-6">
@@ -187,13 +197,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>It&apos;s a Wonderful Life Review</CardTitle>
+                  <CardTitle>{t('common:film_analysis_wonderful_life_title')}</CardTitle>
                   <CardDescription>
-                    September 8, 2024
+                    {t('common:film_analysis_wonderful_life_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">An in-depth analysis of Frank Capra&apos;s 1946 masterpiece that explores the profound impact of one person&apos;s life on an entire community.</p>
+                  <p className="text-muted-foreground">{t('common:film_analysis_wonderful_life_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -207,13 +217,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>Titane Review</CardTitle>
+                  <CardTitle>{t('common:film_analysis_titane_title')}</CardTitle>
                   <CardDescription>
-                    September 9, 2024
+                    {t('common:film_analysis_titane_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">An analysis of Julia Ducournau&apos;s provocative film that challenges our understanding of identity, body autonomy, and human connection.</p>
+                  <p className="text-muted-foreground">{t('common:film_analysis_titane_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -227,13 +237,13 @@ export default function Page() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>Vermiglio Review</CardTitle>
+                  <CardTitle>{t('common:film_analysis_vermiglio_title')}</CardTitle>
                   <CardDescription>
-                    September 10, 2024
+                    {t('common:film_analysis_vermiglio_date')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">An analysis of Maura Delpero&apos;s meditative film set in post-WWII Italy that explores isolation, memory, and female resilience.</p>
+                  <p className="text-muted-foreground">{t('common:film_analysis_vermiglio_desc')}</p>
                 </CardContent>
               </Card>
             </Link>
@@ -244,10 +254,10 @@ export default function Page() {
       {/* Featured Experiences */}
       <section id="featured" className="space-y-4 mt-16 scroll-mt-16">
         <BlurFade delay={1.25}>
-          <h2 className="text-3xl font-bold">Featured Experiences</h2>
+          <h2 className="text-3xl font-bold">{t('common:featured_experiences_title')}</h2>
         </BlurFade>
         <BlurFade delay={1.3}>
-          <p className="text-lg text-muted-foreground">Stories from my most formative professional journeys</p>
+          <p className="text-lg text-muted-foreground">{t('common:featured_experiences_p1')}</p>
         </BlurFade>
         <BlurFade delay={1.35}>
           <ExperienceShowcase items={FEATURED_EXPERIENCES} />
@@ -259,11 +269,11 @@ export default function Page() {
       <section id="resume" className="space-y-12 scroll-mt-16">
         <div className="text-center space-y-4">
           <BlurFade delay={1.15}>
-            <h2 className="text-4xl font-bold tracking-tight">Professional Experience</h2>
+            <h2 className="text-4xl font-bold tracking-tight">{t('common:professional_experience_title')}</h2>
           </BlurFade>
           <BlurFade delay={1.2}>
             <p className="text-lg text-muted-foreground">
-              My journey in film production and analysis
+              {t('common:professional_experience_p1')}
             </p>
           </BlurFade>
         </div>
@@ -272,7 +282,7 @@ export default function Page() {
           <div className="space-y-6">
             <BlurFade delay={1.2}>
               <div className="flex items-center gap-4">
-                <h3 className="text-2xl font-bold">Work Experience</h3>
+                <h3 className="text-2xl font-bold">{t('common:work_experience_title')}</h3>
                 <Separator className="flex-grow" />
               </div>
             </BlurFade>
@@ -296,7 +306,7 @@ export default function Page() {
           <div className="space-y-6">
             <BlurFade delay={1.4}>
               <div className="flex items-center gap-4">
-                <h3 className="text-2xl font-bold">Education</h3>
+                <h3 className="text-2xl font-bold">{t('common:education_title')}</h3>
                 <Separator className="flex-grow" />
               </div>
             </BlurFade>
@@ -319,7 +329,7 @@ export default function Page() {
             <div className="space-y-6">
               <BlurFade delay={1.6}>
                 <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold">Skills</h3>
+                  <h3 className="text-2xl font-bold">{t('common:skills_title')}</h3>
                   <Separator className="flex-grow" />
                 </div>
               </BlurFade>
@@ -337,7 +347,7 @@ export default function Page() {
             <div className="space-y-6">
               <BlurFade delay={1.7}>
                 <div className="flex items-center gap-4">
-                  <h3 className="text-2xl font-bold">Languages</h3>
+                  <h3 className="text-2xl font-bold">{t('common:languages_title')}</h3>
                   <Separator className="flex-grow" />
                 </div>
               </BlurFade>
@@ -354,6 +364,13 @@ export default function Page() {
           </div>
         </div>
       </section>
+        </div> {/* End of main content area */}
+
+        {/* Sticky Navigation for large screens */}
+        <aside className="hidden lg:block lg:w-1/4 lg:sticky lg:top-8 h-screen"> {/* Added h-screen for sticky parent */}
+          <HomeNavigation sections={homeSections} />
+        </aside>
+      </div>
     </main>
   );
 }

@@ -29,7 +29,9 @@ export function HomeNavigation({ sections }: HomeNavigationProps) {
         });
       },
       {
-        rootMargin: "-20% 0px -80% 0px",
+        // Adjusted rootMargin for sticky top navigation
+        // Activates when section is ~10% from top, deactivates when top of section is ~70% from top
+        rootMargin: "-10% 0px -70% 0px", 
         threshold: 0.1
       }
     );
@@ -58,7 +60,10 @@ export function HomeNavigation({ sections }: HomeNavigationProps) {
   };
 
   return (
-    <nav className="hidden lg:block fixed top-1/2 right-8 transform -translate-y-1/2 z-50">
+    // Changed: `fixed top-1/2 right-8 transform -translate-y-1/2` to `sticky top-8`
+    // Removed: `transform -translate-y-1/2`
+    // The parent <aside> in page.tsx now handles the positioning and stickiness.
+    <nav className="hidden lg:block w-full"> {/* Removed positioning, parent aside will handle it */}
       <div className="relative flex flex-col gap-3 pl-4">
         <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
         {sections.map((section) => {
