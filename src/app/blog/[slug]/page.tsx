@@ -1,96 +1,242 @@
-import { getBlogPosts, getPost } from "@/data/blog";
-import { getResumeData } from "@/data/resume"; // Changed from DATA to getResumeData
+import { getPost } from "@/data/blog";
+import { CATALOG, CATALOG_ORDER, nextScreening } from "@/data/catalog";
+import { STORIES } from "@/data/stories";
+import { YouTubeEmbed } from "@/components/mdx-components";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogLayout } from "@/components/blog-layout";
-import { createTranslation } from "next-i18next"; // For server-side translations
-import { i18n } from "../../../../next-i18next.config"; // Path to i18n config
 
-export async function generateStaticParams() {
-  // Fetch posts for all supported languages to generate static paths
-  const englishPosts = await getBlogPosts('en');
-  const frenchPosts = await getBlogPosts('fr');
-  
-  const params = [
-    ...englishPosts.map((post) => ({ lang: 'en', slug: post.slug })),
-    ...frenchPosts.map((post) => ({ lang: 'fr', slug: post.slug })),
-  ];
-  return params;
+export function generateStaticParams() {
+  return CATALOG_ORDER.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: {
-    slug: string;
-    lang: string; // Language parameter from URL
-  };
-}): Promise<Metadata | undefined> {
-  const lang = params.lang || i18n.defaultLocale;
-  const { t } = await createTranslation(lang, ['resume', 'common']); // Load 'resume' and 'common' namespaces
-  const DATA = getResumeData(t); // Get language-specific resume data for URL
-  
-  let post = await getPost(params.slug, lang);
-
-  if (!post) {
-    return {}; // Return empty metadata or handle as needed
-  }
-
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${encodeURIComponent(title)}`;
-
+  params: { slug: string };
+}): Promise<Metadata> {
+  const entry = CATALOG[params.slug];
+  if (!entry) return {};
   return {
-    title,
-    description,
+    title: entry.title,
+    description: entry.summary,
     openGraph: {
-      title,
-      description,
+      title: entry.title,
+      description: entry.summary,
       type: "article",
-      publishedTime,
-      url: `${DATA.url}/${lang}/blog/${post.slug}`, // Include language in URL
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
+      ...(entry.hero ? { images: [{ url: entry.hero }] } : {}),
     },
   };
 }
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-    lang: string; // Language parameter from URL
-  };
+function StoryBody({ slug }: { slug: string }) {
+  const s = STORIES[slug];
+  return (
+    <>
+      <p
+        className="font-serif-display"
+        style={{
+          fontSize: 21,
+          lineHeight: 1.6,
+          color: "var(--ink)",
+          margin: "0 0 26px",
+        }}
+      >
+        {s.introduction}
+      </p>
+      {s.youtube && <YouTubeEmbed id={s.youtube} />}
+      {s.images.length > 0 && (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 10,
+            margin: "34px 0",
+          }}
+        >
+          {s.images.map((i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={i}
+              src={i}
+              alt="Production still"
+              style={{
+                width: "100%",
+                aspectRatio: "4 / 3",
+                objectFit: "cover",
+                display: "block",
+                border: "1px solid var(--line)",
+                filter: "grayscale(15%) contrast(1.05)",
+                margin: 0,
+              }}
+            />
+          ))}
+        </div>
+      )}
+      {s.sections.map((sec) => (
+        <section key={sec.title}>
+          <h2>{sec.title}</h2>
+          <p>{sec.content}</p>
+        </section>
+      ))}
+    </>
+  );
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const lang = params.lang || i18n.defaultLocale;
-  const post = await getPost(params.slug, lang).catch(() => null);
+export default async function ScreeningRoomPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const entry = CATALOG[params.slug];
+  if (!entry) notFound();
 
-  if (!post) {
-    notFound();
+  let essayBody: React.ReactNode = null;
+  if (entry.type === "essay") {
+    const post = await getPost(params.slug);
+    if (!post) notFound();
+    essayBody = post.source;
   }
-  
-  // For "Back to blog" link, we'd ideally use t() here.
-  // This requires passing t from generateMetadata or re-creating it.
-  // For simplicity, if BlogLayout handles this or if it's static English, it's fine.
-  // If BlogLayout needs to be dynamic, it might need to become a client component or receive t.
+
+  const next = nextScreening(params.slug);
 
   return (
-    <BlogLayout> 
-      {post.source}
-    </BlogLayout>
+    <article
+      style={{
+        maxWidth: 780,
+        margin: "0 auto",
+        padding: "84px clamp(20px, 4vw, 40px) 60px",
+        animation: "fadeUp .8s .1s both",
+      }}
+    >
+      <div
+        className="mono"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          fontSize: 11,
+          letterSpacing: "0.24em",
+          textTransform: "uppercase",
+        }}
+      >
+        <span style={{ color: "var(--gold)" }}>{entry.kicker}</span>
+        <span style={{ flex: 1, height: 1, background: "var(--line)" }} />
+        <span style={{ color: "var(--muted)" }}>{entry.date}</span>
+      </div>
+      <h1
+        className="font-serif-display"
+        style={{
+          fontSize: "clamp(38px, 5.4vw, 62px)",
+          lineHeight: 1.05,
+          margin: "24px 0 10px",
+          textWrap: "balance",
+        }}
+      >
+        {entry.title}
+      </h1>
+      <p
+        className="font-serif-display"
+        style={{
+          fontStyle: "italic",
+          fontSize: 19,
+          lineHeight: 1.55,
+          color: "var(--muted)",
+          margin: "0 0 8px",
+          textWrap: "pretty",
+        }}
+      >
+        {entry.summary}
+      </p>
+      {entry.hero && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={entry.hero}
+          alt={entry.title}
+          style={{
+            width: "100%",
+            aspectRatio: "2.39 / 1",
+            objectFit: "cover",
+            display: "block",
+            margin: "30px 0 8px",
+            border: "1px solid var(--line)",
+            filter: "contrast(1.05)",
+          }}
+        />
+      )}
+      <div className="article-body" style={{ marginTop: 26 }}>
+        {entry.type === "story" ? (
+          <StoryBody slug={params.slug} />
+        ) : (
+          essayBody
+        )}
+      </div>
+
+      <div
+        style={{
+          borderTop: "1px solid var(--line)",
+          marginTop: 64,
+          paddingTop: 36,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 24,
+          flexWrap: "wrap",
+        }}
+      >
+        <div>
+          <div
+            className="mono"
+            style={{
+              fontSize: 10.5,
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              marginBottom: 10,
+            }}
+          >
+            Next screening
+          </div>
+          <Link
+            href={`/blog/${next.slug}`}
+            className="font-serif-display"
+            style={{
+              fontSize: 28,
+              lineHeight: 1.15,
+              color: "var(--ink)",
+            }}
+          >
+            {next.title} →
+          </Link>
+        </div>
+        <a
+          href="mailto:lhaddad.maha@gmail.com"
+          className="mono"
+          style={{
+            border: "1px solid rgba(216, 164, 74, 0.5)",
+            padding: "13px 22px",
+            fontSize: 11,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--gold)",
+          }}
+        >
+          Work with Maha
+        </a>
+      </div>
+      <div
+        className="mono"
+        style={{
+          fontSize: 10,
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "var(--muted-deep)",
+          marginTop: 50,
+          textAlign: "center",
+        }}
+      >
+        Maha — Portfolio · The Screening Room
+      </div>
+    </article>
   );
 }
