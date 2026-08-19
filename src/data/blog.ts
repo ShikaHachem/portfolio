@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { compileMDX } from 'next-mdx-remote/rsc';
+import { compileMDX } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx-components";
 
 type Metadata = {
@@ -11,80 +11,73 @@ type Metadata = {
   image?: string;
 };
 
-function getMDXFiles(dir: string, locale: string = 'en') {
-  const files = fs.readdirSync(dir);
-  if (locale === 'en') {
-    // For English, get files that don't have a .fr.mdx suffix
-    return files.filter(
-      (file) => path.extname(file) === ".mdx" && !file.endsWith(".fr.mdx")
+function getMDXFiles(dir: string) {
+  // English-only content; localized *.xx.mdx files are ignored.
+  return fs
+    .readdirSync(dir)
+    .filter(
+      (file) =>
+        path.extname(file) === ".mdx" && !/\.[a-z]{2}\.mdx$/.test(file)
     );
-  }
-  // For other locales, get files with the specific locale suffix e.g. .fr.mdx
-  return files.filter(
-    (file) => path.extname(file) === ".mdx" && file.endsWith(`.${locale}.mdx`)
-  );
 }
 
-export async function getPost(slug: string, locale: string = 'en') {
-  const filename = locale === 'en' ? `${slug}.mdx` : `${slug}.${locale}.mdx`;
-  const filePath = path.join(process.cwd(), "content", filename);
+export async function getPost(slug: string) {
+  const filePath = path.join(process.cwd(), "content", `${slug}.mdx`);
 
-  let source;
+  let source: string;
   try {
     source = fs.readFileSync(filePath, "utf-8");
-  } catch (error) {
-    // If localized file doesn't exist, fall back to English
-    if (locale !== 'en') {
-      const fallbackFilePath = path.join(process.cwd(), "content", `${slug}.mdx`);
-      try {
-        source = fs.readFileSync(fallbackFilePath, "utf-8");
-      } catch (fallbackError) {
-        console.error(`Error reading file for slug ${slug} (locale ${locale} and fallback):`, fallbackError);
-        return null; // Or throw an error, or return a specific "not found" object
-      }
-    } else {
-      console.error(`Error reading file for slug ${slug} (locale ${locale}):`, error);
-      return null; // Or throw an error
-    }
+  } catch {
+    return null;
   }
 
   const { content, data } = matter(source);
-  
+
+  // The Screening Room header already renders title/date/summary — strip the
+  // duplicated in-document title block, mirroring the design's mdToHtml().
+  let cleaned = content.replace(
+    /<div className="mb-8 text-center">[\s\S]*?<\/div>\s*/,
+    ""
+  );
+
+  // Raw <iframe> embeds become the design's framed YouTube embed.
+  cleaned = cleaned.replace(
+    /<iframe[\s\S]*?(?:<\/iframe>|\/>)/g,
+    (m) => {
+      const src = (m.match(/src="([^"]+)"/) || [])[1] || "";
+      const id = (src.match(/embed\/([\w-]+)/) || [])[1];
+      return id ? `<YouTubeEmbed id="${id}" />` : "";
+    }
+  );
+
   const { content: mdxContent } = await compileMDX({
-    source: content,
+    source: cleaned,
     components: mdxComponents,
     options: {
-      parseFrontmatter: false, // Frontmatter is already parsed by gray-matter
+      parseFrontmatter: false,
     },
   });
 
   return {
     source: mdxContent,
     metadata: data as Metadata,
-    slug: locale === 'en' ? slug : slug.replace(`.${locale}`, ''), // Ensure slug is consistent
+    slug,
   };
 }
 
-export async function getBlogPosts(locale: string = 'en') {
+export async function getBlogPosts() {
   const contentDir = path.join(process.cwd(), "content");
-  const mdxFiles = getMDXFiles(contentDir, locale);
-  
+  const mdxFiles = getMDXFiles(contentDir);
+
   const posts = await Promise.all(
-    mdxFiles.map(async (file) => {
-      let slug = path.basename(file, path.extname(file));
-      // Remove locale suffix from slug if present (e.g., 'my-post.fr' becomes 'my-post')
-      if (locale !== 'en' && slug.endsWith(`.${locale}`)) {
-        slug = slug.substring(0, slug.length - `.${locale}`.length);
-      }
-      return getPost(slug, locale);
-    })
+    mdxFiles.map((file) => getPost(path.basename(file, path.extname(file))))
   );
 
-  // Filter out any null posts (e.g., if a file read failed)
-  const validPosts = posts.filter(post => post !== null) as Array<{ source: any; metadata: Metadata; slug: string; }>;
-  
-  return validPosts.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - 
-           new Date(a.metadata.publishedAt).getTime();
-  });
+  return posts
+    .filter((post): post is NonNullable<typeof post> => post !== null)
+    .sort(
+      (a, b) =>
+        new Date(b.metadata.publishedAt).getTime() -
+        new Date(a.metadata.publishedAt).getTime()
+    );
 }
