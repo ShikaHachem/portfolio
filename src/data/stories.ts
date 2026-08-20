@@ -52,7 +52,7 @@ export const STORIES: Record<string, Story> = {
     role: "Assistant Director & Producer",
     period: "November 2022 - July 2023",
     logo: "/ifm.png",
-    images: [],
+    images: ["/ifm-interview-shoot.jpg"],
     introduction:
       "My time as an Assistant Director and Assistant Producer at Radio IFM was an unforgettable deep dive into the fast-paced world of live broadcasting. Every day brought a new challenge—juggling schedules, coordinating with guests, and making sure the show ran seamlessly behind the scenes. But beyond the logistics, it was about storytelling, precision, and the thrill of live radio.",
     sections: [

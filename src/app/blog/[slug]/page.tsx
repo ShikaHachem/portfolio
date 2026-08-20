@@ -49,7 +49,7 @@ function StoryBody({ slug }: { slug: string }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: `repeat(${Math.min(s.images.length, 3)}, 1fr)`,
             gap: 10,
             margin: "34px 0",
           }}
@@ -62,7 +62,7 @@ function StoryBody({ slug }: { slug: string }) {
               alt="Production still"
               style={{
                 width: "100%",
-                aspectRatio: "4 / 3",
+                aspectRatio: s.images.length === 1 ? "2 / 1.1" : "4 / 3",
                 objectFit: "cover",
                 display: "block",
                 border: "1px solid var(--line)",
