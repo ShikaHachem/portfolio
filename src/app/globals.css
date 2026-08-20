@@ -419,6 +419,155 @@ a.review-card:hover {
   border: 0;
 }
 
+/* ---------- "A Moment On Air" tile + cinema lightbox ---------- */
+.onair-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: var(--bg-deep);
+  cursor: pointer;
+  overflow: hidden;
+  font: inherit;
+}
+.onair-tile video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(25%) contrast(1.05);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s;
+}
+.onair-tile:hover video {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.05);
+}
+.onair-tile-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 4, 3, 0.15) 0%,
+    rgba(5, 4, 3, 0.75) 100%
+  );
+}
+.onair-tile-ui {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.onair-play {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(216, 164, 74, 0.7);
+  background: rgba(5, 4, 3, 0.55);
+  color: var(--gold);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  transition: background 0.3s, transform 0.3s;
+}
+.onair-tile:hover .onair-play {
+  background: var(--gold);
+  color: var(--bg-deep);
+  transform: scale(1.08);
+}
+.onair-tile-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.onair-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: blink 1.6s infinite;
+}
+.onair-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(5, 4, 3, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 48px);
+  animation: fadeIn 0.35s both;
+}
+.onair-screen {
+  width: min(960px, 100%);
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  padding: 0 14px 14px;
+  animation: fadeUp 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.onair-slate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.onair-close {
+  border: 1px solid rgba(237, 230, 216, 0.3);
+  background: none;
+  color: var(--ink);
+  padding: 6px 12px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s;
+}
+.onair-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.onair-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 8px 0;
+  background: #000;
+}
+.onair-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.onair-caption {
+  padding: 12px 4px 2px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
 /* ---------- Reveal on scroll ---------- */
 [data-reveal] {
   transition: opacity 0.95s cubic-bezier(0.2, 0.7, 0.2, 1),

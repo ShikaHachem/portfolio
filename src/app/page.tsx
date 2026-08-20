@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MomentOnAir } from "@/components/moment-on-air";
 import { RevealController } from "@/components/reveal";
 
 const THUMBS = [
@@ -980,32 +981,6 @@ export default function Page() {
             <div
               style={{
                 padding: "clamp(28px, 4vw, 52px)",
-                borderRight: "1px solid var(--line-soft)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <p
-                className="font-serif-display"
-                style={{
-                  fontStyle: "italic",
-                  fontSize: "clamp(19px, 1.8vw, 24px)",
-                  lineHeight: 1.55,
-                  color: "var(--ink)",
-                  margin: 0,
-                  textWrap: "pretty",
-                }}
-              >
-                <span style={{ color: "var(--gold)" }}>“</span>
-                {
-                  "My time as an Assistant Director and Assistant Producer at Radio IFM was an unforgettable deep dive into the fast-paced world of live broadcasting. Every day brought a new challenge—juggling schedules, coordinating with guests, and making sure the show ran seamlessly behind the scenes. But beyond the logistics, it was about storytelling, precision, and the thrill of live radio."
-                }
-                <span style={{ color: "var(--gold)" }}>”</span>
-              </p>
-            </div>
-            <div
-              style={{
-                padding: "clamp(28px, 4vw, 52px)",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
@@ -1030,20 +1005,19 @@ export default function Page() {
               >
                 Radio IFM
               </span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/ifm-interview-shoot.jpg"
-                alt="Filming an interview in the Radio IFM studio"
+              <p
                 style={{
-                  width: "100%",
-                  flex: 1,
-                  minHeight: 200,
-                  objectFit: "cover",
-                  display: "block",
-                  border: "1px solid var(--line)",
-                  filter: "grayscale(20%) contrast(1.05)",
+                  fontSize: 15.5,
+                  lineHeight: 1.85,
+                  color: "var(--ink-soft)",
+                  margin: 0,
+                  textWrap: "pretty",
                 }}
-              />
+              >
+                {
+                  "My time as an Assistant Director and Assistant Producer at Radio IFM was an unforgettable deep dive into the fast-paced world of live broadcasting. Every day brought a new challenge—juggling schedules, coordinating with guests, and making sure the show ran seamlessly behind the scenes. But beyond the logistics, it was about storytelling, precision, and the thrill of live radio."
+                }
+              </p>
               <Link
                 href="/blog/radio-ifm"
                 className="mono"
@@ -1057,6 +1031,71 @@ export default function Page() {
               >
                 Read the full story →
               </Link>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gridTemplateRows: "1fr 1fr",
+                gap: 2,
+                background: "var(--bg-deep)",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ifm-interview-shoot.jpg"
+                alt="Filming an interview in the Radio IFM studio"
+                style={{
+                  gridRow: "1 / span 2",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                  filter: "grayscale(20%) contrast(1.05)",
+                }}
+              />
+              <MomentOnAir
+                src="/ifm-testimonial.mp4"
+                label="A Moment On Air"
+                caption="Live on air — the IFM team on working with Maha: “bachoucha”, always smiling, “ta3mel b samt” — she works quietly and lets the work speak."
+              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 10,
+                  padding: 18,
+                  textAlign: "center",
+                  background: "var(--panel)",
+                }}
+              >
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 9.5,
+                    letterSpacing: "0.26em",
+                    textTransform: "uppercase",
+                    color: "var(--gold)",
+                  }}
+                >
+                  Heard on air
+                </span>
+                <span
+                  className="font-serif-display"
+                  style={{
+                    fontStyle: "italic",
+                    fontSize: "clamp(15px, 1.4vw, 19px)",
+                    lineHeight: 1.5,
+                    color: "var(--ink)",
+                    textWrap: "balance",
+                  }}
+                >
+                  “Bachoucha” — always smiling, works quietly, lets the work
+                  speak.
+                </span>
+              </div>
             </div>
           </div>
         </section>
