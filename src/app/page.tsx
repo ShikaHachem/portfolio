@@ -981,6 +981,8 @@ export default function Page() {
               style={{
                 padding: "clamp(28px, 4vw, 52px)",
                 borderRight: "1px solid var(--line-soft)",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               <p
@@ -1028,6 +1030,20 @@ export default function Page() {
               >
                 Radio IFM
               </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ifm-interview-shoot.jpg"
+                alt="Filming an interview in the Radio IFM studio"
+                style={{
+                  width: "100%",
+                  flex: 1,
+                  minHeight: 200,
+                  objectFit: "cover",
+                  display: "block",
+                  border: "1px solid var(--line)",
+                  filter: "grayscale(20%) contrast(1.05)",
+                }}
+              />
               <Link
                 href="/blog/radio-ifm"
                 className="mono"
