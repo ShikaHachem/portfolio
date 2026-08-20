@@ -1,6 +1,9 @@
 export interface StorySection {
   title: string;
   content: string;
+  /** Local video attached below this section's text. */
+  video?: string;
+  videoCaption?: string;
 }
 
 export interface Story {
@@ -65,6 +68,9 @@ export const STORIES: Record<string, Story> = {
         title: "A Moment On Air",
         content:
           "One of the most unexpected and gratifying moments came when the show's host gave me an on-air shoutout, praising my work in front of the contributors. It wasn't just a passing compliment—it was a genuine recognition of my effort, and in a world where things move fast and stress runs high, that acknowledgment meant everything.",
+        video: "/ifm-testimonial.mp4",
+        videoCaption:
+          "Live on air — the IFM team on working with me: “bachoucha”, always smiling, “ta3mel b samt” — she works quietly and lets the work speak.",
       },
       {
         title: "Mediating a Clash of Generations",

@@ -77,6 +77,42 @@ function StoryBody({ slug }: { slug: string }) {
         <section key={sec.title}>
           <h2>{sec.title}</h2>
           <p>{sec.content}</p>
+          {sec.video && (
+            <figure style={{ margin: "34px 0" }}>
+              <div className="embed-frame" style={{ margin: 0 }}>
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <video
+                  src={sec.video}
+                  controls
+                  preload="metadata"
+                  playsInline
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    background: "var(--bg-deep)",
+                  }}
+                />
+              </div>
+              {sec.videoCaption && (
+                <figcaption
+                  className="mono"
+                  style={{
+                    fontSize: 10.5,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "var(--muted)",
+                    marginTop: 12,
+                    lineHeight: 1.9,
+                  }}
+                >
+                  {sec.videoCaption}
+                </figcaption>
+              )}
+            </figure>
+          )}
         </section>
       ))}
     </>
